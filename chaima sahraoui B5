@@ -1,0 +1,39 @@
+.data
+hello_msg:  .asciiz "Hello, MIPS!\n"
+name_msg:   .asciiz "Your Name Here\n"
+num_msg:    .asciiz "Number: "
+nl:         .asciiz "\n"
+
+        .text
+        .globl main
+
+main:
+
+    # Print hello message
+    li $v0, 4
+    la $a0, hello_msg
+    syscall
+
+    # Print name message
+    li $v0, 4
+    la $a0, name_msg
+    syscall
+
+    # Print label "Number: "
+    li $v0, 4
+    la $a0, num_msg
+    syscall
+
+    # Print integer (example: 42)
+    li $v0, 1
+    li $a0, 42
+    syscall
+
+    # Print newline
+    li $v0, 4
+    la $a0, nl
+    syscall
+
+    # Exit program
+    li $v0, 10
+    syscall
